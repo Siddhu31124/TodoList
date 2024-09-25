@@ -1,0 +1,315 @@
+*{
+  box-sizing: border-box;
+  margin:0px;
+  padding:0px;
+  
+}
+.mainContainer {
+  height: 100vh;        
+   /* margin-top: 2rem;     
+   margin-bottom: 2rem;  */
+  display: flex;     
+  gap: 2rem;           
+}
+.SidebarContainer{
+  height:100vh;
+  border-top-right-radius:15px;
+  background-color:black;
+  padding:40px;
+  width:22%;
+  overflow: auto;
+}
+.SidebarContainer h1{
+  color:white;
+  font-family:Roboto;
+  font-weight:600;
+  font-size:35px;
+  margin:20px 0px;
+}
+.SidebarContainer ul{
+  list-style:none;
+}
+.SidebarContainer li{
+  padding:8px;
+  width:150px;
+  color:white;
+  font-size:20px;
+  margin:10px;
+}
+.SidebarContainer li:hover{
+  background-color: rgb(47, 46, 46);
+  color:aliceblue;
+  
+}
+.custom-button {
+  border-radius: 0.375rem;   /* rounded-md */
+  color: #292524; 
+  background-color: #a8a29e;  
+  padding:12px;
+  font-weight: 700;  
+  border-radius:16px;        /* text-stone-400 */
+}
+
+.custom-button:hover {
+  background-color: #7b7775;  
+  color: #f5f5f4;            /* hover:text-stone-100 */
+}
+.buttonContainer{
+  display:flex;
+  justify-content: End;
+}
+.buttonCancel{
+  background-color:rgb(255, 253, 253);
+  padding:12px;
+  border-radius:12px;
+  font-weight:700;
+  width:80px;
+  border: 2px solid black;
+}
+.buttonSave{
+  background-color:rgb(0, 0, 0);
+  padding:12px;
+  border-radius:12px;
+  color:white;
+  font-weight:700;
+  width:80px;
+  margin-left:16px;
+}
+.element {
+  width: 35rem;      
+  margin-top: 4rem;  
+}
+.buttonCancel:hover{
+  background-color:grey;
+}
+.buttonSave:hover{
+  background-color: rgb(58, 58, 58);
+  color:rgb(255, 255, 255);
+}
+.InputContainer{
+  display:flex;
+  flex-direction:column;
+  gap:0.5rem;
+}
+.InputLabel{
+  font-size:18px;
+  color:rgb(95, 95, 95);
+  font-weight: 500;
+  margin-top:10px;
+}
+.InputBar{
+  background-color: rgb(176, 176, 176);
+  height:30px;
+  margin-bottom:1rem;
+  border:none;
+}
+.InputTextarea{
+  background-color: rgb(176, 176, 176);
+  height:85px;
+  margin-bottom:1rem;
+  border:none;
+}
+.homeContainer{
+  height:100vh;
+  width:75%;
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+}
+.homeContainer img{
+  height:200px;
+  width:200px;
+  margin-bottom:20px;
+}
+.homeContainer h2{
+  font-size:24px;
+  font-weight:700;
+  margin-bottom:20px;
+
+}
+.homeContainer p{
+  color:grey;
+  margin-bottom:20px;
+  font-weight:700;
+}
+.homeContainer button{
+  background-color:rgb(0, 0, 0);
+  padding:12px;
+  border-radius:12px;
+  color:white;
+  font-weight:700;  
+  cursor:pointer; 
+}
+.homeContainer button:hover{
+  background-color:rgb(55, 55, 55);
+  
+}
+
+.todo-list {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+h1 {
+  text-align: center;
+}
+
+.todo-list {
+  min-width: 70vw;
+  max-height:100vh;
+  margin: 40px auto;
+  padding: 20px;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 0px 3px 8px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+  overflow: auto;
+  
+}
+
+
+.todo-list h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color:black;
+}
+
+/* Todo item styling */
+.todo-item {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+.todo-item{
+  display: flex;
+  flex-direction: column;
+  gap:1rem;
+}
+
+
+.todo-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.todo-item h2 {
+  margin: 0;
+  font-size: 2rem;
+  color: #0e0e0e;
+}
+
+.todo-item p {
+  margin: 5px 0;
+  color: #555;
+}
+.heading{
+  display: flex;
+  align-items: center;
+  gap:2rem;
+}
+.delete-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #3c3c3c;
+  font-size: 1.5rem;
+  transition: color 0.3s;
+}
+
+
+.delete-button:hover {
+  color: #050505;
+}
+
+.login-container {
+  height:100vh;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.login-form{
+  background: #fff;
+  padding: 4rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width:500px;
+}
+
+.login-title {
+  font-size: 2rem;
+  color: #333;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.2rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #555;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s;
+}
+
+.form-input:focus {
+  border-color: #6c63ff;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #6c63ff;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-btn:hover {
+  background-color: #554ebf;
+}
+
+.signup-link {
+  text-align: center;
+  margin-top: 1rem;
+  color: #777;
+}
+
+.signup-link a {
+  color: #6c63ff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.signup-link a:hover {
+  text-decoration: underline;
+}

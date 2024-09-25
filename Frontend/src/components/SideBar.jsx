@@ -6,7 +6,7 @@ export default function SideBar({}){
     return(
         <div className="SidebarContainer">
             <h1>Your Todos</h1>
-            <Link to="/add-todo"><button className="custom-button">Create New Todo</button></Link> 
+            <Link to="/todo/add-todo"><button className="custom-button">Create New Todo</button></Link> 
             <ul>
                 {tasks.map((project,index)=><li key={index} >{project.title}</li>)}
             </ul>

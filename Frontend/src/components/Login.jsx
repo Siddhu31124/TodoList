@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
+import { Link, useNavigate } from "react-router-dom";
 
-const Login = ({ handleLogin }) => {
+const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate(); // useNavigate for programmatic navigation
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleLogin({ email, password });
+      navigate('/'); 
   };
 
   return (
@@ -15,12 +17,12 @@ const Login = ({ handleLogin }) => {
         <h1 className="login-title">Login</h1>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label htmlFor="username">UsernName</label>
+            <label htmlFor="username">Username</label>
             <input
               type="text"
               id="username"
               className="form-input"
-              placeholder="Enter your UserNmae"
+              placeholder="Enter your username"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -38,12 +40,12 @@ const Login = ({ handleLogin }) => {
               required
             />
           </div>
-          <button type="submit" className="login-btn">
+          <Link to="/todo"><button type="submit" className="login-btn">
             Login
-          </button>
+          </button></Link>
         </form>
         <p className="signup-link">
-          Don't have an account? <a href="/signup">Sign up</a>
+          Don't have an account? <Link to="/signup">Sign up</Link>
         </p>
       </div>
     </div>

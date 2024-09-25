@@ -132,6 +132,11 @@
   margin-bottom:20px;
   font-weight:700;
 }
+.errormsg{
+  color:red;
+  font-size: 20px;
+  font-weight: 600;
+}
 .homeContainer button{
   background-color:rgb(0, 0, 0);
   padding:12px;
@@ -194,7 +199,7 @@ h1 {
 }
 .todo-item{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap:1rem;
 }
 
@@ -209,6 +214,13 @@ h1 {
   font-size: 2rem;
   color: #0e0e0e;
 }
+.todo-item-checkBox{
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #4CAF50; 
+  border: 2px solid #353333;
+  border-radius: 5px;}
 
 .todo-item p {
   margin: 5px 0;

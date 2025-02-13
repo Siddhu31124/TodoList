@@ -7,9 +7,9 @@ export default function SideBar({}){
         <div className="SidebarContainer">
             <h1>Your Todos</h1>
             <Link to="/todo/add-todo"><button className="custom-button">Create New Todo</button></Link> 
-            <ul>
+            <ol>
                 {tasks.map((project,index)=><li key={index} >{project.title}</li>)}
-            </ul>
+            </ol>
         </div>
     )
 }

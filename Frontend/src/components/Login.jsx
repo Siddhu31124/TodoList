@@ -1,21 +1,13 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from "react-router-dom";
+import React from 'react';
+import { Link,Form} from "react-router-dom";
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const navigate = useNavigate(); // useNavigate for programmatic navigation
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-      navigate('/'); 
-  };
 
   return (
     <div className="login-container">
       <div className="login-form">
         <h1 className="login-title">Login</h1>
-        <form onSubmit={handleSubmit}>
+        <Form method="POST">
           <div className="form-group">
             <label htmlFor="username">Username</label>
             <input
@@ -23,8 +15,7 @@ const Login = () => {
               id="username"
               className="form-input"
               placeholder="Enter your username"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              name='username'
               required
             />
           </div>
@@ -35,15 +26,14 @@ const Login = () => {
               id="password"
               className="form-input"
               placeholder="Enter your password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              name='password'
               required
             />
           </div>
-          <Link to="/todo"><button type="submit" className="login-btn">
+          <button type="submit" className="login-btn">
             Login
-          </button></Link>
-        </form>
+          </button>
+        </Form>
         <p className="signup-link">
           Don't have an account? <Link to="/signup">Sign up</Link>
         </p>

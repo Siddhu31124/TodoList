@@ -4,11 +4,13 @@ import TodoDetailsPage from "./Pages/TodoDetailsPage";
 import RouterPage from "./RouterPage"
 import LoginPage from "./Pages/LoginPage";
 import Sign from "./components/SignUp";
+import { actionSingUp } from "./components/SignUp";
+import { action as loginAction } from "./Pages/LoginPage";
 import {createBrowserRouter,RouterProvider} from "react-router-dom"
 function App() {
   const router=createBrowserRouter([
-    {path:"/",element:<LoginPage/>},
-    {path:"/signup",element:<Sign/>},
+    {path:"/",element:<LoginPage/>,action:loginAction},
+    {path:"/signup",element:<Sign/>,action:actionSingUp},
     {
     path:'/todo',
     element:<RouterPage/>,

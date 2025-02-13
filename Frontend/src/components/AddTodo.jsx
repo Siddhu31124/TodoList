@@ -29,17 +29,6 @@ export default function AddTodo(){
         descriptionInput.current.value="",
         DateInput.current.value=""
         navigate("/todo/todo-details")
-        async function fetchdata(){
-            await fetch("http://localhost:3000/", {
-            method: "POST",
-            body: JSON.stringify(todoDetails), 
-            headers: {
-              "Content-Type": "application/json" 
-            }
-          })
-        }
-        fetchdata()
-        
         setError(false)
     }
 

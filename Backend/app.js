@@ -42,13 +42,12 @@ const authenticateToken = (request, response, next) => {
     next()
   })
 }
-
-// Sign in route
-app.post('/users/signin/', async (request, response) => {  // Updated path from '/signin/' to '/users/signin/'
+app.post('/api/signup/', async (request, response) => {  
   const {username, password} = request.body
-
-  const userExistsQuery = 'SELECT * FROM users WHERE username = ?'
+  const userExistsQuery = 'SELECT * FROM users WHERE name = ?'
   const userExists = await db.get(userExistsQuery, [username])
+  console.log(request.body)
+
 
   if (userExists) {
     return response.status(400).send('User already exists')
@@ -60,15 +59,15 @@ app.post('/users/signin/', async (request, response) => {  // Updated path from 
 
   const hashedPassword = await bcrypt.hash(password, 10)
   const createUserQuery = `
-    INSERT INTO users (id, username, password) 
-    VALUES (?, ?, ?)`
-  await db.run(createUserQuery, [v4(), username, hashedPassword])
+    INSERT INTO users (id,name,email,password) 
+    VALUES (?, ?, ?, ?)`
+  await db.run(createUserQuery, [v4(), username,email,hashedPassword])
 
   response.send('User created successfully')
 })
 
 // Login route
-app.post('/users/login/', async (request, response) => {  // Updated path from '/login/' to '/users/login/'
+app.post('/api/login/', async (request, response) => {  // Updated path from '/login/' to '/users/login/'
   const {username, password} = request.body
 
   const userQuery = 'SELECT * FROM users WHERE username = ?'
@@ -87,7 +86,7 @@ app.post('/users/login/', async (request, response) => {  // Updated path from '
   response.send({jwtToken: token})
 })
 
-app.get('/todos/:id', authenticateToken, async (request, response) => {  // Updated path from '/todos/:id' to '/tasks/:id'
+app.get('/api/todos/:id', authenticateToken, async (request, response) => {  // Updated path from '/todos/:id' to '/tasks/:id'
   const {id} = request.params
   const todoQuery = `
     SELECT * 
@@ -99,7 +98,7 @@ app.get('/todos/:id', authenticateToken, async (request, response) => {  // Upda
   response.send(resData)
 })
 
-app.post('/todos/:id', authenticateToken, async (request, response) => {  // Updated path from '/todos/add-todo/:id' to '/tasks/add/:id'
+app.post('/api/todos/:id', authenticateToken, async (request, response) => {  // Updated path from '/todos/add-todo/:id' to '/tasks/add/:id'
   const {id,title, description, date} = request.body
   const userId = request.user.id
 
@@ -112,7 +111,7 @@ app.post('/todos/:id', authenticateToken, async (request, response) => {  // Upd
 })
 
 
-app.delete('/todos/:id/', authenticateToken, async (request, response) => {  // Updated path from '/todos/:id/' to '/tasks/:id/'
+app.delete('/api/todos/:id/', authenticateToken, async (request, response) => {  // Updated path from '/todos/:id/' to '/tasks/:id/'
   const {id} = request.params
   const userId = request.user.id
 
@@ -133,7 +132,7 @@ app.delete('/todos/:id/', authenticateToken, async (request, response) => {  // 
 })
 
 
-app.put('/todos/:id', authenticateToken, async (request, response) => {  // Updated path from '/todos/:id' to '/tasks/:id'
+app.put('/api/todos/:id', authenticateToken, async (request, response) => {  // Updated path from '/todos/:id' to '/tasks/:id'
   const { title, description, date } = request.body; 
   const userId = request.user.id
   const {id} = request.params
@@ -147,7 +146,7 @@ app.put('/todos/:id', authenticateToken, async (request, response) => {  // Upda
   response.send("Updated Successfully")
 });
 
-app.put('/users/:id', authenticateToken, async (request, response) => {
+app.put('/api/users/:id', authenticateToken, async (request, response) => {
   const { name, email, password } = request.body;
   const { id } = request.params;
 
